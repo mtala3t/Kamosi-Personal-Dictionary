@@ -5,3 +5,6 @@ This Personal Dictionary allows the users to add difficult and unknown words whi
 
 This program is made in JDK 1.6. It Included many features which not only atract users of it but also inspires the programmars who want to make good Desktop Applications in Java . 
 
+The used IDE is netbeans (I uploaded all project artifacts), also the executable JAR file is uploaded.
+
+This application is free to use and the code is available to anyone to learn from it without any restrictions.
