@@ -1,0 +1,148 @@
+<?xml version="1.0"?>
+<!DOCTYPE jasperReport 
+PUBLIC "-//JasperReports//DTD Report Design//EN" 
+"http://jasperreports.sourceforge.net/dtds/jasperreport.dtd">
+
+<jasperReport name="HelloReportWorld">
+    <parameter name="reportTitle" class="java.lang.String"/>
+    <parameter name="author" class="java.lang.String"/>
+    <parameter name="startDate" class="java.lang.String"/>
+    <parameter name="wordType" class="java.lang.String"/>
+    <parameter name="category" class="java.lang.String"/>
+    <queryString>
+        <![CDATA[SELECT * FROM word where type=$P{wordType} and category=$P{category} and word!='mm' ORDER BY word ]]>
+    </queryString>
+    
+    <field name="word" class="java.lang.String"/>
+    <field name="type" class="java.lang.String"/>
+    <field name="translation" class="java.lang.String"/>
+    <field name="example" class="java.lang.String"/>
+    <field name="relatedwords" class="java.lang.String"/>
+    
+    <title>
+        <band height="60">
+            <textField>
+                <reportElement x="0" y="10" width="500" height="40"/>
+                <textElement textAlignment="Center">
+                    <font size="24"/>
+                </textElement>
+                <textFieldExpression class="java.lang.String">
+                    <![CDATA[$P{reportTitle}]]>
+                </textFieldExpression>
+            </textField>
+            <textField>
+                <reportElement x="0" y="40" width="500" height="20"/>
+                <textElement textAlignment="Center"/>
+                <textFieldExpression class="java.lang.String">
+                    <![CDATA["Run by: " + $P{author} 
+                        + " on " + $P{startDate}]]>
+                </textFieldExpression>
+            </textField>
+        </band>
+    </title>
+    <columnHeader>
+        <band height="30" isSplitAllowed="true">
+            <rectangle>
+                <reportElement x="0" y="0" width="530" height="25"/>
+                <graphicElement/>
+            </rectangle>
+            <staticText>
+                <reportElement x="5" y="5" width="50" height="15"/>
+                <textElement >
+                    <font isUnderline="true"/>
+                </textElement>
+                <text><![CDATA[Word]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="80" y="5" width="50" height="15"/>
+                <textElement >
+                    <font isUnderline="true"/>
+                </textElement>
+                <text><![CDATA[Type]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="150" y="5" width="50" height="15"/>
+                <textElement >
+                    <font isUnderline="true"/>
+                </textElement>
+                <text><![CDATA[Translation]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="250" y="5" width="160" height="15"/>
+                <textElement >
+                    <font isUnderline="true"/>
+                </textElement>
+                <text><![CDATA[Example]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="420" y="5" width="80" height="15"/>
+                <textElement >
+                    <font isUnderline="true"/>
+                </textElement>
+                <text><![CDATA[Related Words]]></text>
+            </staticText>
+        </band>
+    </columnHeader>
+    <detail>
+        <band height="20" isSplitAllowed="true">
+            <textField>
+                <reportElement x="5" y="0" width="50" height="15"/>
+                <textElement/>
+                <textFieldExpression class="java.lang.String">
+                    <![CDATA[$F{word}]]>
+                </textFieldExpression>
+            </textField>
+            <textField>
+                <reportElement x="80" y="0" width="50" height="15"/>
+                <textElement/>
+                <textFieldExpression class="java.lang.String">
+                    <![CDATA[$F{type}]]>
+                </textFieldExpression>
+            </textField>
+            <textField>
+                <reportElement x="150" y="0" width="50" height="15"/>
+                <textElement/>
+                <textFieldExpression class="java.lang.String">
+                    <![CDATA[$F{translation}]]>
+                </textFieldExpression>
+            </textField>
+            <textField>
+                <reportElement x="250" y="0" width="160" height="15"/>
+                <textElement/>
+                <textFieldExpression class="java.lang.String">
+                    <![CDATA[$F{example}]]>
+                </textFieldExpression>
+            </textField>
+            <textField>
+                <reportElement x="420" y="0" width="80" height="15"/>
+                <textElement/>
+                <textFieldExpression class="java.lang.String">
+                    <![CDATA[$F{relatedwords}]]>
+                </textFieldExpression>
+            </textField>
+        </band>
+    </detail>
+    <columnFooter>
+        <band>
+        </band>
+    </columnFooter>
+    <pageFooter>
+        <band height="15">
+            <staticText>
+                <reportElement x="260" y="0" width="40" height="15"/>
+                <textElement/>
+                <text><![CDATA[Page:]]></text>
+            </staticText>
+            <textField>
+                <reportElement x="290" y="0" width="100" height="15"/>
+                <textElement/>
+                <textFieldExpression class="java.lang.Integer"><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+            </textField>
+        </band>
+    </pageFooter>
+    <summary>
+        <band>
+        </band>
+    </summary>
+    
+</jasperReport>
