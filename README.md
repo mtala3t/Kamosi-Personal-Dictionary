@@ -8,3 +8,5 @@ This program is made in JDK 1.6. It Included many features which not only atract
 The used IDE is netbeans (I uploaded all project artifacts), also the executable JAR file is uploaded.
 
 This application is free to use and the code is available to anyone to learn from it without any restrictions.
+
+Please visit my website. http://www.mohamedtalaat.net/
